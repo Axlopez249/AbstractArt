@@ -1,0 +1,121 @@
+package pintores;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
+
+import pintoresInterface.*;
+import ui.ControllerLienzo;
+import ui.Lienzo;
+
+public class Hilo implements Runnable{
+	private GeneradorPintor generador = new GeneradorPintor();
+	
+	private int grosor;
+	private int x;
+	private int y;
+	private int alto;
+	private int ancho;
+	private String color;
+	
+	Random random = new Random();
+	private int cantidadPintores;
+	private int cantidadMovimientos;
+	private ArrayList<IPintorProduct> listaPintores = new ArrayList<>();
+	private String colores[]= {"Red", "Black", "Blue"};
+	private Iterador iterador;
+	private SujetoObserver sujeto;
+	
+	private int contadorLocal = 0;
+	
+	public Hilo(int pcanttidadPintores, int pcantidadMovimientos, Lienzo lienzo) {
+		cantidadPintores = pcanttidadPintores;
+		cantidadMovimientos = pcantidadMovimientos;
+		
+		//aqui genero la lista que va a contener todos los pintores y la lleno para poder hacer uso de next()
+		String pintores[]= {"PintorPoligono", "PintorPunto", "PintorRaya"};
+		int contador = 0;
+		for (int i = 0; i < pcanttidadPintores; i++) {
+			if (contador==3) {contador = 0;}
+			
+			if (pintores[contador].equals("PintorPoligono")) {
+				
+				IPintorProduct pintorPoli = generador.getPintorPoligono();
+				pintorPoli.setMovimientos(pcantidadMovimientos);
+				pintorPoli.setLienzo(lienzo);
+				listaPintores.add(pintorPoli);
+				
+			}if (pintores[contador].equals("PintorPunto")) {
+				
+				IPintorProduct pintorPun = generador.getPintorPunto();
+				pintorPun.setMovimientos(pcantidadMovimientos);
+				pintorPun.setLienzo(lienzo);
+				listaPintores.add(pintorPun);
+				
+			}
+			if (pintores[contador].equals("PintorRaya")) {
+				
+				IPintorProduct pintorRay = generador.getPintorRaya();
+				pintorRay.setMovimientos(pcantidadMovimientos);
+				pintorRay.setLienzo(lienzo);
+				listaPintores.add(pintorRay);
+			}
+			contador ++;
+			
+		}
+		
+		iterador = new Iterador(listaPintores);
+		sujeto = new SujetoObserver(listaPintores);
+
+	}
+	@Override
+	public void run(){
+		//En este hilo se va utilizando next() y demás para poder conseguir el sguiente valor de lista y poder 
+        //proceso donde se va a estar recorriendo la lista y por cada elemento se va y se le meten los datos necesarios para lo que necesite
+		//Se supone que yo voy a estar actualizando el indice para acceder a la 
+		
+		
+		IPintorProduct pintor = iterador.next();
+		
+        
+        
+        
+        //Traigo el pintor anterior
+        if (contadorLocal != 0) {
+        	IPintorProduct pintorAnterior = iterador.last();
+        	x = random.nextInt(pintorAnterior.getX()) + 20;
+            y = random.nextInt(pintorAnterior.getY()) + 20;
+            grosor = random.nextInt(pintorAnterior.getGrosor()) + 2;
+        	
+			
+			while (true) {
+				int contador = random.nextInt(colores.length); // Genera un índice aleatorio
+		     
+		        if (colores[contador] != pintorAnterior.getColot()) {
+		        	
+		        	//Ya tengo el color solo falta llamar la funcion 
+		        	pintor.
+		        }
+			}
+		}
+        
+        
+		
+		
+		//Se generan los datos de tamaño color y posicion aleatoria
+		
+		
+		
+		
+        try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // Espera 1 segundo antes de imprimir el siguiente mensaje
+            
+        
+	}
+	
+}

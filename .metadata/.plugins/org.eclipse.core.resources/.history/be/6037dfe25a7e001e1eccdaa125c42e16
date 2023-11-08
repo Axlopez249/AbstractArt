@@ -1,0 +1,25 @@
+package pintores;
+
+import java.awt.Color;
+
+import ui.Lienzo;
+
+public class Main {
+	public static void main(String[] args) {
+		int cantidadPintores = 3;
+		int cantidadMovimientos = 6;
+
+		int x = 900;
+		int y = 500;
+		Lienzo panel = new Lienzo(x , y);
+		
+		//panel.AgregarPunto();
+		panel.AgregarTriangulo();
+		//panel.AgregarLinea(3, "", 300, 700, 120, 43);
+		//panel.AgregarCuadrado(98, Color.BLUE, 100, 89);
+		panel.setVisible(true);
+        Hilo miRunnable = new Hilo(cantidadPintores, cantidadMovimientos, panel);
+        Thread miHilo = new Thread(miRunnable);
+        miHilo.start(); // Inicia el hilo
+    }
+}

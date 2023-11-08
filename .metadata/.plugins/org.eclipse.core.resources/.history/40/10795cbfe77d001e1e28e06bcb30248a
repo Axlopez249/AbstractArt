@@ -1,0 +1,26 @@
+package pintores;
+
+import pintoresInterface.*;
+
+public class GeneradorPintor implements IGenerador{
+
+	@Override
+	public PintorPoligono getPintorPoligono() {
+		PintorPoligono pintorPoligono = new PintorPoligono(2);
+		return pintorPoligono;
+				
+	}
+
+	@Override
+	public PintorPunto getPintorPunto() {
+		PintorPunto pintorPunto = null;
+		return pintorPunto;
+	}
+
+	@Override
+	public PintorRaya getPintorRaya() {
+		PintorRaya pintorRaya = null;
+		return pintorRaya;
+	}
+
+}

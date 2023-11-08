@@ -1,0 +1,24 @@
+package pintores;
+import pintoresInterface.*;
+
+public class PintorPoligono implements IPintorProduct{
+
+	@Override
+	public void pintar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notificar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,70 @@
+package pintores;
+import java.util.Random;
+
+import pintoresInterface.*;
+import ui.ControllerLienzo;
+import ui.Lienzo;
+
+public class PintorPoligono implements IPintorProduct{
+	private int grosor;
+	private int xPosition;
+	private int yPosition;
+	private int ancho;
+	private int alto;
+	private String color;
+	private int cantMovimientos;
+	private Lienzo lienzo;
+	private boolean estado = false;
+	
+	@Override
+	public void pintar(int grosor, int xPosition, int yPosition, int ancho, int alto, String color) {
+		this.grosor = grosor;
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
+		this.color = color;
+		this.ancho = ancho;
+		this.alto = alto;
+		getPoligono();
+		
+	}
+
+
+	@Override
+	public void actualizar(boolean estado) {
+		this.estado = estado;
+		
+	}
+
+	@Override
+	public void setMovimientos(int pmovimientos) {
+		this.cantMovimientos = pmovimientos;
+		
+	}
+	public void setLienzo(Lienzo plienzo) {
+		this.lienzo = plienzo;
+	}
+	
+	public void getPoligono() {
+
+		String[] figuras = {"Cuadrado", "Triangulo"};
+
+        Random random = new Random();
+        int contador = random.nextInt(figuras.length); // Genera un índice aleatorio
+        ControllerLienzo controller = new ControllerLienzo(lienzo);
+        if (figuras[contador].equals("Cuadrado")) {
+        	controller.crearCuadrado();
+        }else if (figuras[contador].equals("Triangulo")) {
+            controller.crearTriangulo();
+        }
+			
+		
+	}
+
+
+	@Override
+	public String getColot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

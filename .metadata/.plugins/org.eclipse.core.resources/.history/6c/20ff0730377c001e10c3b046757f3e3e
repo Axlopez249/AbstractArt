@@ -1,0 +1,6 @@
+package pintores;
+import pintoresInterface.*;
+
+public class PintorPoligono implements IPintorProduct{
+
+}

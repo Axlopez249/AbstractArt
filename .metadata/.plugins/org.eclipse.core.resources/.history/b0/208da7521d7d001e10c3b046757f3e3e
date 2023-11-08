@@ -1,0 +1,17 @@
+package pintores;
+
+import pintoresInterface.IObserver;
+
+public class SujetoObserver implements IObserver{
+	private ArrayList<IPintorProduct> pintores;
+
+	public SujetoObserver(ArrayList<IPintorProduct> pintores) {
+		
+	}
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

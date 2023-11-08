@@ -1,0 +1,66 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import figuras.Linea;
+import figuras.Punto;
+import figuras.Triangulo;
+
+public class Lienzo extends JFrame{
+	private Triangulo triangulo = new Triangulo();
+	private Punto punto = new Punto();
+	private Linea linea;
+	private Cuadrado cuadrado;
+	
+	public Lienzo(int tamanox, int tamanoy) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(900, 900);
+        setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        getContentPane().setBackground(Color.WHITE);
+        setVisible(true);
+
+	}
+	
+	public void AgregarTriangulo() {
+        triangulo.setBounds(100, 100, 50, 50);
+        triangulo.setVisible(true);
+        triangulo.repaint();
+        add(triangulo);
+    }
+	
+	public void AgregarCuadrado() {
+        cuadrado = new Cuadrado();
+        cuadrado.setBounds(100, 100, 100, 100); // Establece las coordenadas y el tamaño del cuadrado
+        add(cuadrado); // Agrega el cuadrado al lienzo
+        repaint(); // Vuelve a dibujar el lienzo para mostrar el cuadrado
+    }
+	
+	public void AgregarPunto() {
+        punto.setRadio(50); // Establece el radio del círculo
+        punto.setBackground(Color.WHITE); // Establece el color de fondo del círculo si es necesario
+        // Ajusta el tamaño y la posición del círculo si es necesario
+        punto.setBounds(500, 200, 100, 100);
+        add(punto);
+        repaint(); // Vuelve a dibujar el círculo en el lienzo
+    }
+	
+	public void AgregarLinea() {
+		linea = new Linea(100, 100, 200, 200, Color.YELLOW, 5); // Grosor de la línea es 5
+	    linea.setBounds(100, 100, 100, 100);
+	    linea.setVisible(true);
+	    add(linea);
+	}
+	
+
+
+}

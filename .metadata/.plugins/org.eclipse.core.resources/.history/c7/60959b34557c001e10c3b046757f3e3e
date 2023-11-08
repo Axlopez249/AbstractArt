@@ -1,0 +1,7 @@
+package pintoresInterface;
+
+public interface IPintorProduct {
+	void pintar();
+	void notificar();
+	void actualizar();
+}

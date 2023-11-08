@@ -1,0 +1,31 @@
+package figuras;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+public class Linea extends JPanel {
+    private int x1, y1, x2, y2;
+    private Color color;
+    private int grosor;
+
+    public Linea(int x1, int y1, int x2, int y2, Color color, int grosor) {
+    	this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        this.color = color;
+        this.grosor = grosor;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+    	super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(color);
+        g2d.setStroke(new BasicStroke(grosor)); // Establece el grosor de la línea
+        g2d.drawLine(x1, y1, x2, y2);
+    }
+}

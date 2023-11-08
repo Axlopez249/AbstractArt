@@ -1,0 +1,5 @@
+package pintoresInterface;
+
+public interface IPintorProduct {
+
+}

@@ -1,0 +1,22 @@
+package ui;
+
+public class ControllerLienzo {
+	private Lienzo lienzo;
+	
+	public ControllerLienzo(Lienzo lienzo) {
+		this.lienzo = lienzo;
+	}
+	
+	public void crearTriangulo() {
+		
+	}
+	public void crearCuadrado() {
+		
+	}
+	public void crearLinea() {
+		
+	}
+	public void crearPunto() {
+		
+	}
+}

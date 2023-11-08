@@ -1,0 +1,31 @@
+package figuras;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
+
+public class Cuadrado extends JPanel {
+    private int lado;
+    private Color color;
+
+    public Cuadrado(int lado, Color color) {
+        this.lado = lado;
+        this.color = color;
+        
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        // Calcula las coordenadas del cuadrado
+        int x = (getWidth() - lado) / 2;
+        int y = (getHeight() - lado) / 2;
+        // Dibuja el cuadrado
+        g2d.setColor(color.getColor("Blue"));
+        g2d.fillRect(x, y, lado, lado);
+        g2d.setColor(color.black);
+        g2d.drawRect(x, y, lado, lado);
+    }
+}

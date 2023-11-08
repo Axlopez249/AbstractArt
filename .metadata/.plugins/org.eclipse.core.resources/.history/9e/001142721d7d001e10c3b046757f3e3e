@@ -1,0 +1,20 @@
+package pintores;
+
+import java.util.ArrayList;
+
+import pintoresInterface.IObserver;
+import pintoresInterface.IPintorProduct;
+
+public class SujetoObserver implements IObserver{
+	private ArrayList<IPintorProduct> pintores;
+
+	public SujetoObserver(ArrayList<IPintorProduct> pintores) {
+		
+	}
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

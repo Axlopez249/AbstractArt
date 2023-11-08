@@ -1,0 +1,36 @@
+package figuras;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
+
+public class Punto extends JPanel {
+    private int radio; // Radio del círculo
+    private Color color;
+    
+    public Punto(int radio, Color color) {
+    	this.color = color;
+    	this.radio = radio;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        int centroX = getWidth() / 2; // Coordenada X del centro del panel
+        int centroY = getHeight() / 2; // Coordenada Y del centro del panel
+
+        // Dibuja el círculo con el centro y el radio especificados
+        g2d.setColor(color);
+        g2d.fillOval(centroX - radio, centroY - radio, 2 * radio, 2 * radio);
+        g2d.setColor(color);
+        g2d.drawOval(centroX - radio, centroY - radio, 2 * radio, 2 * radio);
+    }
+
+    public void setRadio(int radio) {
+        this.radio = radio;
+        repaint(); // Vuelve a dibujar el círculo cuando se cambia el radio
+    }
+}
+

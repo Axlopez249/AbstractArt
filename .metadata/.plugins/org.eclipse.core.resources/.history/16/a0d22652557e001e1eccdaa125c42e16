@@ -1,0 +1,23 @@
+package pintores;
+
+import ui.Lienzo;
+
+public class Main {
+	public static void main(String[] args) {
+		int cantidadPintores = 3;
+		int cantidadMovimientos = 6;
+
+		int x = 900;
+		int y = 500;
+		Lienzo panel = new Lienzo(x , y);
+		
+		//panel.AgregarPunto();
+		//panel.AgregarTriangulo();
+		//panel.AgregarLinea();
+		panel.AgregarCuadrado(98, "Black", 100, 89);
+		panel.setVisible(true);
+        //Hilo miRunnable = new Hilo(cantidadPintores, cantidadMovimientos, panel);
+        //Thread miHilo = new Thread(miRunnable);
+        //miHilo.start(); // Inicia el hilo
+    }
+}

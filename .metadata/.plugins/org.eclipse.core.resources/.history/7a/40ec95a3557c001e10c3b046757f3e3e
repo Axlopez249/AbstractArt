@@ -1,0 +1,26 @@
+package pintores;
+import pintoresInterface.*;
+
+public class PintorRaya implements IPintorProduct{
+
+	
+
+	@Override
+	public void notificar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pintar(int grosor, int xPosition, int yPosition, String color) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

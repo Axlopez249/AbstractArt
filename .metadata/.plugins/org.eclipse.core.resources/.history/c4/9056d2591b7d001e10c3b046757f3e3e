@@ -1,0 +1,11 @@
+package pintoresInterface;
+
+import ui.Lienzo;
+
+public interface IPintorProduct {
+	void pintar(int grosor, int xPosition, int yPosition, int ancho, int altura, String color);
+	void setMovimientos(int pmovimientos);
+	void setLienzo(Lienzo plienzo);
+	void notificar();
+	void actualizar();
+}

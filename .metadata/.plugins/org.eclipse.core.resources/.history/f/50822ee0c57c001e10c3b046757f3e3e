@@ -1,0 +1,57 @@
+package pintores;
+import pintoresInterface.*;
+
+public class PintorPoligono implements IPintorProduct{
+	private int grosor;
+	private int xPosition;
+	private int yPosition;
+	private String color;
+	private int cantMovimientos = 0;
+	
+	@Override
+	public void pintar(int grosor, int xPosition, int yPosition, int ancho, int alto, String color) {
+	
+		getPoligono();
+		
+	}
+
+	@Override
+	public void notificar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setMovimientos(int pmovimientos) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void getPoligono() {
+
+		String[] figuras = {"Cuadrado", "Circulo", "Triangulo"};
+
+        Random random = new Random();
+        int contador = random.nextInt(figuras.length); // Genera un índice aleatorio
+
+        if (hola[contador].equals("Cuadrado")) {
+            // Operaciones para el caso de un cuadrado
+            System.out.println("Seleccionaste Cuadrado");
+        } else if (hola[contador].equals("Circulo")) {
+            // Operaciones para el caso de un círculo
+            System.out.println("Seleccionaste Círculo");
+        } else if (hola[contador].equals("Triangulo")) {
+            // Operaciones para el caso de un triángulo
+            System.out.println("Seleccionaste Triángulo");
+        }
+			
+		
+	}
+
+}

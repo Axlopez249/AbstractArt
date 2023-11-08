@@ -1,0 +1,20 @@
+package ui;
+
+public class ControllerLienzo {
+	public ControllerLienzo() {
+		
+	}
+	
+	public void crearTriangulo() {
+		
+	}
+	public void crearCuadrado() {
+		
+	}
+	public void crearLinea() {
+		
+	}
+	public void crearPunto() {
+		
+	}
+}

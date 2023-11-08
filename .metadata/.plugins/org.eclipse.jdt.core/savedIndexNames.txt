@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\Axel\Documents\Rodrigo\Pinturas\.metadata\.plugins\org.eclipse.jdt.core
+1696264553.index
+3639463415.index
+1865797976.index

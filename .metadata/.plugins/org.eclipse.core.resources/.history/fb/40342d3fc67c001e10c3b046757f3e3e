@@ -1,0 +1,12 @@
+package figuras;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import javax.swing.JPanel;
+
+public class Poligono extends JPanel{
+	private int x[] = {300,0,600,300};
+    private int y[] = {0,600,600,0};
+    private Polygon triangulo = new Polygon(x2,y2,3);
+}

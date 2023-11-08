@@ -1,0 +1,60 @@
+package pintores;
+import pintoresInterface.*;
+import ui.ControllerLienzo;
+import ui.Lienzo;
+
+public class PintorRaya implements IPintorProduct{
+	private int grosor;
+	private int xPosition;
+	private int yPosition;
+	private String color;
+	private int cantMovimientos;
+	private Lienzo lienzo;
+	private boolean estado;
+	private int alto;
+	private int ancho;
+	
+	@Override
+	public void pintar(int grosor, int xPosition, int yPosition, int ancho, int altura, String color) {
+		ControllerLienzo controller = new ControllerLienzo(lienzo);
+		controller.crearLinea();
+		this.grosor = grosor;
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
+		this.color = color;
+		this.alto = alto;
+		this.ancho = ancho;
+	}
+	
+
+	@Override
+	public void actualizar(boolean estado) {
+		this.estado = estado;
+		
+	}
+
+	@Override
+	public void setMovimientos(int pmovimientos) {
+		cantMovimientos = pmovimientos;
+		
+	}
+
+	@Override
+	public void setLienzo(Lienzo plienzo) {
+		lienzo = plienzo;
+		
+	}
+
+
+	@Override
+	public String getColot() {
+		return color;
+	}
+	
+	
+
+	
+
+	
+
+}

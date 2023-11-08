@@ -1,0 +1,26 @@
+package figuras;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
+
+public class Poligono extends JPanel{
+	
+	public Poligono() {
+		Graphics g = null;
+		crearTriangulo(g);
+	}
+
+    
+    public void crearTriangulo(Graphics g)
+    {
+        
+    	Graphics2D g2d = (Graphics2D) g;
+        int x[] = {300,0,600};
+        int y[] = {0, 600,600};
+        g2d.fillPolygon(x,y,3);
+        g2d.setColor(Color.red);
+        g2d.drawPolygon(x,y,3);
+    }
+}

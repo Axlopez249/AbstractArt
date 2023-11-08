@@ -1,0 +1,25 @@
+package pintores;
+import pintoresInterface.*;
+
+public class PintorRaya implements IPintorProduct{
+
+	@Overrides
+	public void pintar(int grosor, int xPosition, int yPosition, String color) {
+		//esto se tiene que conectar con la ui para poder pintar la raya
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notificar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package figuras;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
+
+public class Triangulo extends JPanel{
+	private int[] xPoints = {100, 200, 300};
+    private int[] yPoints = {300, 100, 300};
+    
+	@Override
+    protected void paintComponent(Graphics g) {
+		
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        // Dibuja el triángulo con los puntos especificados
+        g2d.setColor(Color.RED);
+        g2d.fillPolygon(xPoints, yPoints, 3);
+        g2d.setColor(Color.BLACK);
+        g2d.drawPolygon(xPoints, yPoints, 3);
+    }
+}

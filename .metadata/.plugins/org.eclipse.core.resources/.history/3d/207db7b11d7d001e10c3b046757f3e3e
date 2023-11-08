@@ -1,0 +1,24 @@
+package pintores;
+
+import java.util.Iterator;
+
+public class Iterador implements Iterator{
+	private int indice;
+	
+	public Iterador() {
+		
+	}
+
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Object next() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

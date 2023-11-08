@@ -1,0 +1,107 @@
+package pintores;
+import pintoresInterface.*;
+import ui.ControllerLienzo;
+import ui.Lienzo;
+
+public class PintorRaya implements IPintorProduct{
+	private int grosor;
+	private int xPosition;
+	private int yPosition;
+	private String color;
+	private int cantMovimientos;
+	private Lienzo lienzo;
+	private boolean estado;
+	private int alto;
+	private int ancho;
+	private int k;
+	
+	public PintorRaya(int k) {
+		this.k = k;
+	}
+	
+	@Override
+	public void pintar(int grosor, int xPosition, int yPosition, int ancho, int altura, String color) {
+		ControllerLienzo controller = new ControllerLienzo(lienzo);
+		
+		this.grosor = grosor;
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
+		this.color = color;
+		this.alto = alto;
+		this.ancho = ancho;
+		
+		controller.crearLinea( grosor,  xPosition,  yPosition,  ancho,  altura,  color);
+	}
+	
+
+	@Override
+	public void actualizar(boolean estado) {
+		this.estado = estado;
+		
+	}
+
+	@Override
+	public void setMovimientos(int pmovimientos) {
+		cantMovimientos = pmovimientos;
+		
+	}
+
+	@Override
+	public void setLienzo(Lienzo plienzo) {
+		lienzo = plienzo;
+		
+	}
+
+
+	@Override
+	public String getColor() {
+		return color;
+	}
+
+
+	@Override
+	public int getGrosor() {
+		return grosor;
+	}
+
+
+	@Override
+	public int getAncho() {
+		
+		return ancho;
+	}
+
+
+	@Override
+	public int getAlto() {
+		
+		return alto;
+	}
+
+
+	@Override
+	public int getX() {
+		
+		return xPosition;
+	}
+
+
+	@Override
+	public int getY() {
+		
+		return yPosition;
+	}
+
+
+	@Override
+	public void actualizarMovimientos() {
+		cantMovimientos--;
+	}
+	
+	
+
+	
+
+	
+
+}

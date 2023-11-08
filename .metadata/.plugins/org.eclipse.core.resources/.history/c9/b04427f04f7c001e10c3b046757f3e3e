@@ -1,0 +1,11 @@
+package pintores;
+
+public class Main {
+	public static void main(String[] args) {
+		int cantidadPintorPunto = 3;
+
+        Hilo miRunnable = new Hilo();
+        Thread miHilo = new Thread(miRunnable);
+        miHilo.start(); // Inicia el hilo
+    }
+}

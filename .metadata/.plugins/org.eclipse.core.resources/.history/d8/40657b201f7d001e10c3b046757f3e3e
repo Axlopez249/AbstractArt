@@ -1,0 +1,27 @@
+package pintores;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import pintoresInterface.IPintorProduct;
+
+public class Iterador implements Iterator{
+	private int indice = 0;
+	private ArrayList<IPintorProduct> pintores;
+	
+	public Iterador(ArrayList<IPintorProduct> pintores) {
+		this.pintores = pintores;
+	}
+
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public IPintorProduct next() {
+		return pintores.get(indice);
+	}
+
+}

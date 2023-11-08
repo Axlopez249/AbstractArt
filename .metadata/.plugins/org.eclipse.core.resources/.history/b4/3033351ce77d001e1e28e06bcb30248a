@@ -1,0 +1,25 @@
+package pintores;
+
+import pintoresInterface.*;
+
+public class GeneradorPintor implements IGenerador{
+
+	@Override
+	public PintorPoligono getPintorPoligono() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PintorPunto getPintorPunto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PintorRaya getPintorRaya() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

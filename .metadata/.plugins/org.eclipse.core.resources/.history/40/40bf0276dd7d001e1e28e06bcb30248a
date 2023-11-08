@@ -1,0 +1,43 @@
+package pintores;
+import pintoresInterface.*;
+import ui.ControllerLienzo;
+import ui.Lienzo;
+
+public class PintorPunto implements IPintorProduct{
+	private int grosor;
+	private int xPosition;
+	private int yPosition;
+	private String color;
+	private int cantMovimientos;
+	private Lienzo lienzo;
+	private boolean estado;
+
+	@Override
+	public void pintar(int grosor, int xPosition, int yPosition, int ancho, int alto, String color) {
+		ControllerLienzo controller = new ControllerLienzo(lienzo);
+		controller.crearPunto();
+	}
+
+
+
+	@Override
+	public void actualizar(boolean estado) {
+		this.estado = estado;
+		
+	}
+
+	@Override
+	public void setMovimientos(int pmovimientos) {this.cantMovimientos = pmovimientos;}
+
+	@Override
+	public void setLienzo(Lienzo plienzo) {this.lienzo = plienzo;}
+
+
+
+	@Override
+	public String getColot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

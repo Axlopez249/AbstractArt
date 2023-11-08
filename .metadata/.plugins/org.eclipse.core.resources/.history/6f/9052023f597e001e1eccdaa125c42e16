@@ -1,0 +1,121 @@
+package pintores;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
+
+import pintoresInterface.*;
+import ui.ControllerLienzo;
+import ui.Lienzo;
+
+public class Hilo implements Runnable{
+	private GeneradorPintor generador = new GeneradorPintor();
+	
+	private int grosor;
+	private int x;
+	private int y;
+	private int alto;
+	private int ancho;
+	private String color;
+	
+	Random random = new Random();
+	private int cantidadPintores;
+	private int cantidadMovimientos;
+	private ArrayList<IPintorProduct> listaPintores = new ArrayList<>();
+	private String colores[]= {"Red", "Black", "Blue"};
+	private Iterador iterador;
+	private SujetoObserver sujeto;
+	
+	private int contadorLocal = 0;
+	
+	public Hilo(int pcanttidadPintores, int pcantidadMovimientos, Lienzo lienzo) {
+		cantidadPintores = pcanttidadPintores;
+		cantidadMovimientos = pcantidadMovimientos;
+		
+		//aqui genero la lista que va a contener todos los pintores y la lleno para poder hacer uso de next()
+		String pintores[]= {"PintorPoligono", "PintorPunto", "PintorRaya"};
+		int contador = 0;
+		for (int i = 0; i < pcanttidadPintores; i++) {
+			
+			if (contador==3) {contador = 0;}
+			
+			if (pintores[contador].equals("PintorPoligono")) {
+				
+				IPintorProduct pintorPoli = generador.getPintorPoligono();
+				pintorPoli.setMovimientos(pcantidadMovimientos);
+				pintorPoli.setLienzo(lienzo);
+				listaPintores.add(pintorPoli);
+				
+			}if (pintores[contador].equals("PintorPunto")) {
+				
+				IPintorProduct pintorPun = generador.getPintorPunto();
+				pintorPun.setMovimientos(pcantidadMovimientos);
+				pintorPun.setLienzo(lienzo);
+				listaPintores.add(pintorPun);
+				
+			}
+			if (pintores[contador].equals("PintorRaya")) {
+				
+				IPintorProduct pintorRay = generador.getPintorRaya();
+				pintorRay.setMovimientos(pcantidadMovimientos);
+				pintorRay.setLienzo(lienzo);
+				listaPintores.add(pintorRay);
+			}
+			contador ++;
+			
+		}
+		
+		iterador = new Iterador(listaPintores);
+		sujeto = new SujetoObserver(listaPintores);
+
+	}
+	@Override
+	public void run() {
+	    while (true) {
+	        IPintorProduct pintor = iterador.next();
+
+	        if (contadorLocal != 0) {
+	            IPintorProduct pintorAnterior = iterador.last();	     
+	            int x = Math.abs(random.nextInt(120) + 1) + 70;
+	            int y = Math.abs(random.nextInt(120) + 1) + 100;
+	            int grosor = Math.abs(random.nextInt(120) + 90);
+	            int alto = Math.abs(random.nextInt(120) + 1) + 150;
+	            int ancho = Math.abs(random.nextInt(120) + 1) + 100;
+	            pintorAnterior.actualizar(false);
+	            // Asegura que contador sea al menos 1
+	            
+	            
+	            for (int i = 0; i < colores.length; i++) {
+	            	if (colores[i] != pintorAnterior.getColor()) {
+		                pintor.actualizar(true);
+		                pintor.pintar(grosor, x, y, alto, ancho, colores[i]);
+		                pintor.actualizarMovimientos();
+		                break;
+		            } 	
+				}      
+	        } else {
+	            int x = Math.abs(random.nextInt(120) + 1) + 50;
+	            int y = Math.abs(random.nextInt(120) + 1) + 90;
+	            int grosor = Math.abs(random.nextInt(120) + 160);
+	            int alto = Math.abs(random.nextInt(120) + 1) + 180;
+	            int ancho = Math.abs(random.nextInt(120) + 1) + 200;
+
+	            int contador = Math.abs(random.nextInt(colores.length));
+	            pintor.pintar(grosor, x, y, alto, ancho, colores[contador]);
+	            pintor.actualizarMovimientos();
+	            pintor.actualizar(true);
+	        }
+
+	        contadorLocal++;
+
+	        try {
+	            Thread.sleep(4000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	}
+
+	
+}
